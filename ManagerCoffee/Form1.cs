@@ -43,22 +43,23 @@ namespace ManagerCoffee
                     conn = null;
                     connetionString = @"Data Source=SONNE\SUN;Initial Catalog=COFFEE_MN;User ID=sa;Password=123456";
                     MessageBox.Show("Connection to Main Server ");
-                    
+                    ChangeServer();
                     break;
                 case 1:
                     conn = null;
                     connetionString = @"Data Source=SONNE\SUNSERVER1;Initial Catalog=COFFEE_MN;User ID=sa;Password=123456";
                     MessageBox.Show("Connection to Da Nang Server ");
-                    
+                    ChangeServer();
                     break;
                 case 2:
                     conn = null;
                     connetionString = @"Data Source=SONNE\SUNSERVER2;Initial Catalog=COFFEE_MN;User ID=sa;Password=123456";
                     MessageBox.Show("Connection to Ho Chi Minh Server 2 ");
-                    
+                    ChangeServer();
                     break;
             }
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -74,6 +75,7 @@ namespace ManagerCoffee
                 ChooseStaffID();
                 ChooseStorageID();
                 ChooseShippingID();
+                ChooseProductID();
                 /*conn.Open();
                 SqlCommand sc = new SqlCommand("Select staffid from staffs", conn);
                 SqlDataReader reader;
@@ -127,6 +129,41 @@ namespace ManagerCoffee
             }
         }
 
+        private void ChooseProductID()
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand sc = new SqlCommand("Select productid from products", conn);
+                SqlDataReader reader;
+                reader = sc.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("productid", typeof(int));
+                dt.Load(reader);
+                txtProduct.ValueMember = "productid";
+                txtProduct.DataSource = dt;
+
+                txtProductIDTabStorage.ValueMember = "productid";
+                txtProductIDTabStorage.DataSource = dt;
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to Connection" + ex.Message);
+            }
+        }
+        private void ChangeServer()
+        {
+            ViewListShipping();
+            ViewListProduct();
+            ViewListStaff();
+            ViewListStorage();
+            ViewListBill();
+            ChooseStaffID();
+            ChooseStorageID();
+            ChooseShippingID();
+        }
+
         private void tabShipping_Click(object sender, EventArgs e)
         {
 
@@ -151,6 +188,7 @@ namespace ManagerCoffee
         {
             ViewListShipping();
             ChooseStaffID();
+            ChooseProductID();
         }
 
         private void ViewListShipping()
@@ -237,10 +275,8 @@ namespace ManagerCoffee
                 try
                 {
                     int shippingid = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    Console.WriteLine(result);
-                    MessageBox.Show(shippingid.ToString());
-
+                    /*Console.WriteLine(result);
+                    MessageBox.Show(shippingid.ToString());*/
                     SqlCommand cmd1 = new SqlCommand();
                     cmd1.CommandType = CommandType.Text;
                     cmd1.Connection = conn;
@@ -261,7 +297,7 @@ namespace ManagerCoffee
                 {
                     MessageBox.Show(ex.Message + "\n Insert Failed!!");
                 }
-                if (result > 0)
+                if (result1 > 0)
                 {
                     ViewListShipping();
                 }
@@ -320,13 +356,13 @@ namespace ManagerCoffee
         {
             if (conn == null) conn = new SqlConnection(connetionString);
             if (conn.State == ConnectionState.Closed) conn.Open();
-            SqlCommand cmd = new SqlCommand($"DELETE FROM [shippings] WHERE shippingid='{txtShippingID.Text}'", conn);
-            /*SqlCommand cmd1 = new SqlCommand($"DELETE FROM [shipping_manages] WHERE shippingid='{txtShippingID.Text}'", conn);*/
+            SqlCommand cmd = new SqlCommand($"DELETE FROM [shipping_manages] WHERE shippingid='{txtShippingID.Text}'", conn);
+            SqlCommand cmd1 = new SqlCommand($"DELETE FROM [shippings] WHERE shippingid='{txtShippingID.Text}'", conn);
 
             try
             {
-                result = cmd.ExecuteNonQuery();
-                /*result1 = cmd1.ExecuteNonQuery();*/
+                result1 = cmd.ExecuteNonQuery();
+                result = cmd1.ExecuteNonQuery();
                 MessageBox.Show("Delete Success!!");
             }
             catch (Exception ex)
@@ -549,6 +585,7 @@ namespace ManagerCoffee
         {
             ViewListStorage();
             ChooseStorageID();
+            ChooseProductID();
         }
         private void ViewListStorage()
         {

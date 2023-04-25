@@ -50,10 +50,10 @@
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnInsert = new System.Windows.Forms.Button();
             this.grBoxShipping = new System.Windows.Forms.GroupBox();
+            this.txtProduct = new System.Windows.Forms.ComboBox();
             this.cbStaffID = new System.Windows.Forms.ComboBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lbQuanity = new System.Windows.Forms.Label();
-            this.txtProduct = new System.Windows.Forms.TextBox();
             this.lbProduct = new System.Windows.Forms.Label();
             this.txtDestination = new System.Windows.Forms.TextBox();
             this.lbDestination = new System.Windows.Forms.Label();
@@ -98,12 +98,12 @@
             this.btnUpdateTabStorage = new System.Windows.Forms.Button();
             this.btnInsertTabStorage = new System.Windows.Forms.Button();
             this.grBoxStorage = new System.Windows.Forms.GroupBox();
+            this.txtProductIDTabStorage = new System.Windows.Forms.ComboBox();
             this.cbStorageIDTabStorage = new System.Windows.Forms.ComboBox();
             this.txtQuantityTabStorage = new System.Windows.Forms.TextBox();
             this.lbQuantity = new System.Windows.Forms.Label();
             this.txtNameTabStorage = new System.Windows.Forms.TextBox();
             this.lbNameTabStorage = new System.Windows.Forms.Label();
-            this.txtProductIDTabStorage = new System.Windows.Forms.TextBox();
             this.lbProductIDTabStorage = new System.Windows.Forms.Label();
             this.lbStorageIDTabStorage = new System.Windows.Forms.Label();
             this.lbTitleStorage = new System.Windows.Forms.Label();
@@ -231,6 +231,7 @@
             // 
             // tabShipping
             // 
+            this.tabShipping.BackColor = System.Drawing.Color.Transparent;
             this.tabShipping.Controls.Add(this.listViewShipping);
             this.tabShipping.Controls.Add(this.btnRefesh);
             this.tabShipping.Controls.Add(this.btnDel);
@@ -244,7 +245,6 @@
             this.tabShipping.Size = new System.Drawing.Size(974, 586);
             this.tabShipping.TabIndex = 0;
             this.tabShipping.Text = "Vận chuyển";
-            this.tabShipping.UseVisualStyleBackColor = true;
             this.tabShipping.Click += new System.EventHandler(this.tabShipping_Click);
             // 
             // listViewShipping
@@ -347,10 +347,10 @@
             // 
             // grBoxShipping
             // 
+            this.grBoxShipping.Controls.Add(this.txtProduct);
             this.grBoxShipping.Controls.Add(this.cbStaffID);
             this.grBoxShipping.Controls.Add(this.txtQuantity);
             this.grBoxShipping.Controls.Add(this.lbQuanity);
-            this.grBoxShipping.Controls.Add(this.txtProduct);
             this.grBoxShipping.Controls.Add(this.lbProduct);
             this.grBoxShipping.Controls.Add(this.txtDestination);
             this.grBoxShipping.Controls.Add(this.lbDestination);
@@ -369,6 +369,14 @@
             this.grBoxShipping.TabIndex = 2;
             this.grBoxShipping.TabStop = false;
             this.grBoxShipping.Text = "Thông tin vận chuyển";
+            // 
+            // txtProduct
+            // 
+            this.txtProduct.FormattingEnabled = true;
+            this.txtProduct.Location = new System.Drawing.Point(88, 293);
+            this.txtProduct.Name = "txtProduct";
+            this.txtProduct.Size = new System.Drawing.Size(191, 23);
+            this.txtProduct.TabIndex = 14;
             // 
             // cbStaffID
             // 
@@ -393,13 +401,6 @@
             this.lbQuanity.Size = new System.Drawing.Size(49, 15);
             this.lbQuanity.TabIndex = 12;
             this.lbQuanity.Text = "Quanity";
-            // 
-            // txtProduct
-            // 
-            this.txtProduct.Location = new System.Drawing.Point(88, 293);
-            this.txtProduct.Name = "txtProduct";
-            this.txtProduct.Size = new System.Drawing.Size(191, 23);
-            this.txtProduct.TabIndex = 11;
             // 
             // lbProduct
             // 
@@ -512,6 +513,7 @@
             // 
             // tabProduct
             // 
+            this.tabProduct.BackColor = System.Drawing.Color.Transparent;
             this.tabProduct.Controls.Add(this.listViewProduct);
             this.tabProduct.Controls.Add(this.btnFreshTabProduct);
             this.tabProduct.Controls.Add(this.btnDelTabProduct);
@@ -525,7 +527,6 @@
             this.tabProduct.Size = new System.Drawing.Size(974, 586);
             this.tabProduct.TabIndex = 1;
             this.tabProduct.Text = "Sản phẩm";
-            this.tabProduct.UseVisualStyleBackColor = true;
             this.tabProduct.Click += new System.EventHandler(this.tabProduct_Click);
             // 
             // listViewProduct
@@ -701,6 +702,7 @@
             // 
             // tabStorage
             // 
+            this.tabStorage.BackColor = System.Drawing.Color.Transparent;
             this.tabStorage.Controls.Add(this.listViewStorage);
             this.tabStorage.Controls.Add(this.btnRefeshTabStorage);
             this.tabStorage.Controls.Add(this.btnDelTabStorage);
@@ -714,7 +716,6 @@
             this.tabStorage.Size = new System.Drawing.Size(974, 586);
             this.tabStorage.TabIndex = 2;
             this.tabStorage.Text = "Quản lý kho";
-            this.tabStorage.UseVisualStyleBackColor = true;
             // 
             // listViewStorage
             // 
@@ -797,12 +798,12 @@
             // 
             // grBoxStorage
             // 
+            this.grBoxStorage.Controls.Add(this.txtProductIDTabStorage);
             this.grBoxStorage.Controls.Add(this.cbStorageIDTabStorage);
             this.grBoxStorage.Controls.Add(this.txtQuantityTabStorage);
             this.grBoxStorage.Controls.Add(this.lbQuantity);
             this.grBoxStorage.Controls.Add(this.txtNameTabStorage);
             this.grBoxStorage.Controls.Add(this.lbNameTabStorage);
-            this.grBoxStorage.Controls.Add(this.txtProductIDTabStorage);
             this.grBoxStorage.Controls.Add(this.lbProductIDTabStorage);
             this.grBoxStorage.Controls.Add(this.lbStorageIDTabStorage);
             this.grBoxStorage.Location = new System.Drawing.Point(662, 62);
@@ -811,6 +812,14 @@
             this.grBoxStorage.TabIndex = 16;
             this.grBoxStorage.TabStop = false;
             this.grBoxStorage.Text = "Thông tin kho";
+            // 
+            // txtProductIDTabStorage
+            // 
+            this.txtProductIDTabStorage.FormattingEnabled = true;
+            this.txtProductIDTabStorage.Location = new System.Drawing.Point(88, 68);
+            this.txtProductIDTabStorage.Name = "txtProductIDTabStorage";
+            this.txtProductIDTabStorage.Size = new System.Drawing.Size(191, 23);
+            this.txtProductIDTabStorage.TabIndex = 23;
             // 
             // cbStorageIDTabStorage
             // 
@@ -852,13 +861,6 @@
             this.lbNameTabStorage.TabIndex = 4;
             this.lbNameTabStorage.Text = "Name  :";
             // 
-            // txtProductIDTabStorage
-            // 
-            this.txtProductIDTabStorage.Location = new System.Drawing.Point(88, 68);
-            this.txtProductIDTabStorage.Name = "txtProductIDTabStorage";
-            this.txtProductIDTabStorage.Size = new System.Drawing.Size(191, 23);
-            this.txtProductIDTabStorage.TabIndex = 3;
-            // 
             // lbProductIDTabStorage
             // 
             this.lbProductIDTabStorage.AutoSize = true;
@@ -890,6 +892,7 @@
             // 
             // tabStaff
             // 
+            this.tabStaff.BackColor = System.Drawing.Color.Transparent;
             this.tabStaff.Controls.Add(this.listViewStaff);
             this.tabStaff.Controls.Add(this.btnRefeshTabStaff);
             this.tabStaff.Controls.Add(this.btnDelTabStaff);
@@ -903,7 +906,6 @@
             this.tabStaff.Size = new System.Drawing.Size(974, 586);
             this.tabStaff.TabIndex = 3;
             this.tabStaff.Text = "Nhân viên";
-            this.tabStaff.UseVisualStyleBackColor = true;
             // 
             // listViewStaff
             // 
@@ -1079,6 +1081,7 @@
             // 
             // tabBill
             // 
+            this.tabBill.BackColor = System.Drawing.Color.Transparent;
             this.tabBill.Controls.Add(this.listViewBill);
             this.tabBill.Controls.Add(this.btnRefeshTabBill);
             this.tabBill.Controls.Add(this.btnDeleteTabBill);
@@ -1092,7 +1095,6 @@
             this.tabBill.Size = new System.Drawing.Size(974, 586);
             this.tabBill.TabIndex = 4;
             this.tabBill.Text = "Đơn hàng";
-            this.tabBill.UseVisualStyleBackColor = true;
             // 
             // listViewBill
             // 
@@ -1308,6 +1310,7 @@
             // 
             // Form1
             // 
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(996, 671);
             this.Controls.Add(this.cbBoxConnect);
             this.Controls.Add(this.tabControl2);
@@ -1357,7 +1360,6 @@
         private System.Windows.Forms.GroupBox grBoxShipping;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label lbQuanity;
-        private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.Label lbProduct;
         private System.Windows.Forms.TextBox txtDestination;
         private System.Windows.Forms.Label lbDestination;
@@ -1418,7 +1420,6 @@
         private System.Windows.Forms.Label lbQuantity;
         private System.Windows.Forms.TextBox txtNameTabStorage;
         private System.Windows.Forms.Label lbNameTabStorage;
-        private System.Windows.Forms.TextBox txtProductIDTabStorage;
         private System.Windows.Forms.Label lbProductIDTabStorage;
         private System.Windows.Forms.Label lbStorageIDTabStorage;
         private System.Windows.Forms.Label lbTitleStorage;
@@ -1466,5 +1467,7 @@
         private System.Windows.Forms.Label lbBillIDTabBill;
         private System.Windows.Forms.Label lbTitleDonHang;
         private System.Windows.Forms.ComboBox cboxStaffIDTabBill;
+        private System.Windows.Forms.ComboBox txtProduct;
+        private System.Windows.Forms.ComboBox txtProductIDTabStorage;
     }
 }
